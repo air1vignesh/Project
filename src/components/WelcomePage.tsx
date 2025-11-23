@@ -90,7 +90,7 @@ function WelcomePage() {
           {/* "> */}
       <div className="mx-auto" style={{ width: "440px", height: "340px" }}>
   <img
-    src="/src/components/assist/Vertical white.png"
+    src="https://raw.githubusercontent.com/air1vignesh/Project/refs/heads/main/src/components/assist/Vertical%20white.png"
     alt="Logo"
     className="w-full h-full object-contain drop-shadow-2xl"
   />
