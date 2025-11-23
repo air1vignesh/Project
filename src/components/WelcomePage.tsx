@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 function WelcomePage() {
   // ✅ Configuration
   const redirectURL = "https://ajanthaconsultancy.in/";
-  const targetDate = new Date("2025-11-23T14:30:00+05:30");
+  const targetDate = new Date("2025-11-23T18:38:00+05:30");
 
   // ✅ State management
   const [isAnimating, setIsAnimating] = useState(false);
@@ -12,13 +12,10 @@ function WelcomePage() {
   const [isLive, setIsLive] = useState(false);
   const [showPopup, setShowPopup] = useState(true);
 
-  // ✅ Prevent returning to this page after launch
+  // ✅ Redirect ONLY if user already entered before
   useEffect(() => {
-    const now = new Date().getTime();
-    const launchTime = targetDate.getTime();
-
-    if (now >= launchTime || localStorage.getItem("siteLaunched") === "true") {
-      window.location.replace(redirectURL); // no back button return
+    if (localStorage.getItem("siteLaunched") === "true") {
+      window.location.replace(redirectURL);
     }
   }, []);
 
@@ -86,17 +83,21 @@ function WelcomePage() {
       <div className="relative z-10 text-center px-4 sm:px-8 max-w-4xl w-full">
         {/* Company Logo */}
         <div className="mb-10 sm:mb-14 flex justify-center">
-          <div className="
-            w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80
-            rounded-full shadow-3xl p-3 sm:p-4 flex items-center justify-center
-            border-8 border-yellow-300 bg-white/10 backdrop-blur-xl
-          ">
-            <img
-              src="src/components/assist/Vertical white.png"
-              alt="Logo"
-              className="w-full h-full object-contain drop-shadow-2xl"
-            />
-          </div>
+          {/* <div className=" */}
+            {/* w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 */}
+            {/* rounded-full shadow-3xl p-3 sm:p-4 flex items-center justify-center */}
+            {/* border-8 border-yellow-300 bg-white/10 backdrop-blur-xl */}
+          {/* "> */}
+      <div className="mx-auto" style={{ width: "440px", height: "340px" }}>
+  <img
+    src="/src/components/assist/Vertical white.png"
+    alt="Logo"
+    className="w-full h-full object-contain drop-shadow-2xl"
+  />
+</div>
+
+
+          {/* </div> */}
         </div>
 
         {/* Title with icon */}
@@ -135,7 +136,7 @@ function WelcomePage() {
         >
           <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
           <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
-            {isLive ? 'Enter Website' : 'Launching Soon'}
+            {isLive ? 'Launch' : 'Launching Soon'}
             <PartyPopper className="w-5 h-5 sm:w-6 sm:h-6" />
           </span>
         </button>
