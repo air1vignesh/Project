@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 function WelcomePage() {
   // ✅ Configuration
   const redirectURL = "https://ajanthaconsultancy.in/";
-  const targetDate = new Date("2025-11-24T18:45:00+05:30");
+  const targetDate = new Date("2025-11-25T18:45:00+05:30");
 
   // ✅ State management
   const [isAnimating, setIsAnimating] = useState(false);
